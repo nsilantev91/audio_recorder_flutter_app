@@ -2,6 +2,8 @@ part of 'recorder_bloc.dart';
 
 @freezed
 class RecorderState with _$RecorderState {
+  const RecorderState._();
+
   const factory RecorderState.idle() = _Idle;
 
   const factory RecorderState.recording() = _Recording;
@@ -11,4 +13,9 @@ class RecorderState with _$RecorderState {
   const factory RecorderState.permissionDenied() = _PermissionDenied;
 
   const factory RecorderState.recordingError() = _RecordingError;
+
+  bool get isPermissionDenied => maybeWhen(
+        permissionDenied: () => true,
+        orElse: () => false,
+      );
 }

@@ -18,18 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RecorderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() recorderInitialized,
     required TResult Function() recordStarted,
     required TResult Function() recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? recorderInitialized,
     TResult? Function()? recordStarted,
     TResult? Function()? recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? recorderInitialized,
     TResult Function()? recordStarted,
     TResult Function()? recordStopped,
     required TResult orElse(),
@@ -37,18 +40,21 @@ mixin _$RecorderEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_RecorderInitialized value) recorderInitialized,
     required TResult Function(_RecordStarted value) recordStarted,
     required TResult Function(_RecordStopped value) recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_RecorderInitialized value)? recorderInitialized,
     TResult? Function(_RecordStarted value)? recordStarted,
     TResult? Function(_RecordStopped value)? recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RecorderInitialized value)? recorderInitialized,
     TResult Function(_RecordStarted value)? recordStarted,
     TResult Function(_RecordStopped value)? recordStopped,
     required TResult orElse(),
@@ -75,6 +81,118 @@ class _$RecorderEventCopyWithImpl<$Res, $Val extends RecorderEvent>
 
   /// Create a copy of RecorderEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$RecorderInitializedImplCopyWith<$Res> {
+  factory _$$RecorderInitializedImplCopyWith(_$RecorderInitializedImpl value,
+          $Res Function(_$RecorderInitializedImpl) then) =
+      __$$RecorderInitializedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RecorderInitializedImplCopyWithImpl<$Res>
+    extends _$RecorderEventCopyWithImpl<$Res, _$RecorderInitializedImpl>
+    implements _$$RecorderInitializedImplCopyWith<$Res> {
+  __$$RecorderInitializedImplCopyWithImpl(_$RecorderInitializedImpl _value,
+      $Res Function(_$RecorderInitializedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RecorderEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RecorderInitializedImpl implements _RecorderInitialized {
+  const _$RecorderInitializedImpl();
+
+  @override
+  String toString() {
+    return 'RecorderEvent.recorderInitialized()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RecorderInitializedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() recorderInitialized,
+    required TResult Function() recordStarted,
+    required TResult Function() recordStopped,
+  }) {
+    return recorderInitialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? recorderInitialized,
+    TResult? Function()? recordStarted,
+    TResult? Function()? recordStopped,
+  }) {
+    return recorderInitialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? recorderInitialized,
+    TResult Function()? recordStarted,
+    TResult Function()? recordStopped,
+    required TResult orElse(),
+  }) {
+    if (recorderInitialized != null) {
+      return recorderInitialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RecorderInitialized value) recorderInitialized,
+    required TResult Function(_RecordStarted value) recordStarted,
+    required TResult Function(_RecordStopped value) recordStopped,
+  }) {
+    return recorderInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_RecorderInitialized value)? recorderInitialized,
+    TResult? Function(_RecordStarted value)? recordStarted,
+    TResult? Function(_RecordStopped value)? recordStopped,
+  }) {
+    return recorderInitialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RecorderInitialized value)? recorderInitialized,
+    TResult Function(_RecordStarted value)? recordStarted,
+    TResult Function(_RecordStopped value)? recordStopped,
+    required TResult orElse(),
+  }) {
+    if (recorderInitialized != null) {
+      return recorderInitialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RecorderInitialized implements RecorderEvent {
+  const factory _RecorderInitialized() = _$RecorderInitializedImpl;
 }
 
 /// @nodoc
@@ -118,6 +236,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() recorderInitialized,
     required TResult Function() recordStarted,
     required TResult Function() recordStopped,
   }) {
@@ -127,6 +246,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? recorderInitialized,
     TResult? Function()? recordStarted,
     TResult? Function()? recordStopped,
   }) {
@@ -136,6 +256,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? recorderInitialized,
     TResult Function()? recordStarted,
     TResult Function()? recordStopped,
     required TResult orElse(),
@@ -149,6 +270,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_RecorderInitialized value) recorderInitialized,
     required TResult Function(_RecordStarted value) recordStarted,
     required TResult Function(_RecordStopped value) recordStopped,
   }) {
@@ -158,6 +280,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_RecorderInitialized value)? recorderInitialized,
     TResult? Function(_RecordStarted value)? recordStarted,
     TResult? Function(_RecordStopped value)? recordStopped,
   }) {
@@ -167,6 +290,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RecorderInitialized value)? recorderInitialized,
     TResult Function(_RecordStarted value)? recordStarted,
     TResult Function(_RecordStopped value)? recordStopped,
     required TResult orElse(),
@@ -223,6 +347,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() recorderInitialized,
     required TResult Function() recordStarted,
     required TResult Function() recordStopped,
   }) {
@@ -232,6 +357,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? recorderInitialized,
     TResult? Function()? recordStarted,
     TResult? Function()? recordStopped,
   }) {
@@ -241,6 +367,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? recorderInitialized,
     TResult Function()? recordStarted,
     TResult Function()? recordStopped,
     required TResult orElse(),
@@ -254,6 +381,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_RecorderInitialized value) recorderInitialized,
     required TResult Function(_RecordStarted value) recordStarted,
     required TResult Function(_RecordStopped value) recordStopped,
   }) {
@@ -263,6 +391,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_RecorderInitialized value)? recorderInitialized,
     TResult? Function(_RecordStarted value)? recordStarted,
     TResult? Function(_RecordStopped value)? recordStopped,
   }) {
@@ -272,6 +401,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RecorderInitialized value)? recorderInitialized,
     TResult Function(_RecordStarted value)? recordStarted,
     TResult Function(_RecordStopped value)? recordStopped,
     required TResult orElse(),
@@ -388,8 +518,8 @@ class __$$IdleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IdleImpl implements _Idle {
-  const _$IdleImpl();
+class _$IdleImpl extends _Idle {
+  const _$IdleImpl() : super._();
 
   @override
   String toString() {
@@ -486,8 +616,9 @@ class _$IdleImpl implements _Idle {
   }
 }
 
-abstract class _Idle implements RecorderState {
+abstract class _Idle extends RecorderState {
   const factory _Idle() = _$IdleImpl;
+  const _Idle._() : super._();
 }
 
 /// @nodoc
@@ -511,8 +642,8 @@ class __$$RecordingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RecordingImpl implements _Recording {
-  const _$RecordingImpl();
+class _$RecordingImpl extends _Recording {
+  const _$RecordingImpl() : super._();
 
   @override
   String toString() {
@@ -609,8 +740,9 @@ class _$RecordingImpl implements _Recording {
   }
 }
 
-abstract class _Recording implements RecorderState {
+abstract class _Recording extends RecorderState {
   const factory _Recording() = _$RecordingImpl;
+  const _Recording._() : super._();
 }
 
 /// @nodoc
@@ -634,8 +766,8 @@ class __$$StoppedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoppedImpl implements _Stopped {
-  const _$StoppedImpl();
+class _$StoppedImpl extends _Stopped {
+  const _$StoppedImpl() : super._();
 
   @override
   String toString() {
@@ -732,8 +864,9 @@ class _$StoppedImpl implements _Stopped {
   }
 }
 
-abstract class _Stopped implements RecorderState {
+abstract class _Stopped extends RecorderState {
   const factory _Stopped() = _$StoppedImpl;
+  const _Stopped._() : super._();
 }
 
 /// @nodoc
@@ -757,8 +890,8 @@ class __$$PermissionDeniedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PermissionDeniedImpl implements _PermissionDenied {
-  const _$PermissionDeniedImpl();
+class _$PermissionDeniedImpl extends _PermissionDenied {
+  const _$PermissionDeniedImpl() : super._();
 
   @override
   String toString() {
@@ -855,8 +988,9 @@ class _$PermissionDeniedImpl implements _PermissionDenied {
   }
 }
 
-abstract class _PermissionDenied implements RecorderState {
+abstract class _PermissionDenied extends RecorderState {
   const factory _PermissionDenied() = _$PermissionDeniedImpl;
+  const _PermissionDenied._() : super._();
 }
 
 /// @nodoc
@@ -880,8 +1014,8 @@ class __$$RecordingErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RecordingErrorImpl implements _RecordingError {
-  const _$RecordingErrorImpl();
+class _$RecordingErrorImpl extends _RecordingError {
+  const _$RecordingErrorImpl() : super._();
 
   @override
   String toString() {
@@ -978,6 +1112,7 @@ class _$RecordingErrorImpl implements _RecordingError {
   }
 }
 
-abstract class _RecordingError implements RecorderState {
+abstract class _RecordingError extends RecorderState {
   const factory _RecordingError() = _$RecordingErrorImpl;
+  const _RecordingError._() : super._();
 }
