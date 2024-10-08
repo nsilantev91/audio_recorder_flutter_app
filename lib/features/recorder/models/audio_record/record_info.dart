@@ -2,17 +2,18 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'record.freezed.dart';
-part 'record.g.dart';
+part 'record_info.freezed.dart';
+part 'record_info.g.dart';
 
 @freezed
-class Record with _$Record {
-  factory Record({
+class RecordInfo with _$RecordInfo {
+  factory RecordInfo({
     required final String name,
     required final String filePath,
     required final DateTime creationDate,
     required final Duration duration,
-  }) = _Record;
+  }) = _RecordInfo;
 
-  factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
+  factory RecordInfo.fromJson(Map<String, dynamic> json) =>
+      _$RecordInfoFromJson(json);
 }

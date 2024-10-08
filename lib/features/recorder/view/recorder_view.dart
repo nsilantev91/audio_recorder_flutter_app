@@ -4,8 +4,21 @@ import 'package:audio_recorder_flutter_app/features/recorder/view/recorder_butto
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RecorderView extends StatelessWidget {
+class RecorderView extends StatefulWidget {
   const RecorderView({super.key});
+
+  @override
+  State<RecorderView> createState() => _RecorderViewState();
+}
+
+class _RecorderViewState extends State<RecorderView> {
+  @override
+  void initState() {
+    context.read<RecorderBloc>().add(
+          const RecorderEvent.recorderInitialized(),
+        );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +38,40 @@ class RecorderView extends StatelessWidget {
         ),
       ),
       bottomSheet: BlocBuilder<RecorderBloc, RecorderState>(
-        builder: (context, state) => state.isPermissionDenied
-            ? const ListTile(
-                leading: Icon(
-                  Icons.error,
-                  color: Colors.amber,
-                ),
-                title: Text(AppStrings.recentRecords),
-              )
-            : RecorderButton(
-                onRecordStarted: () => context
-                    .read<RecorderBloc>()
-                    .add(const RecorderEvent.recordStarted()),
-                onRecordStopped: () => context
-                    .read<RecorderBloc>()
-                    .add(const RecorderEvent.recordStopped()),
+        builder: (context, state) {
+          return state.maybeMap(
+            idle: (idleState) => idleState.initialized
+                ? RecorderButton(
+                    onRecordStarted: () => context
+                        .read<RecorderBloc>()
+                        .add(const RecorderEvent.recordStarted()),
+                    onRecordStopped: (recordDuration) =>
+                        context.read<RecorderBloc>().add(
+                              RecorderEvent.recordStopped(
+                                totalDuration: recordDuration,
+                              ),
+                            ),
+                  )
+                : const SizedBox.shrink(),
+            permissionDenied: (_) => const ListTile(
+              leading: Icon(
+                Icons.error,
+                color: Colors.amber,
               ),
+            ),
+            orElse: () => RecorderButton(
+              onRecordStarted: () => context
+                  .read<RecorderBloc>()
+                  .add(const RecorderEvent.recordStarted()),
+              onRecordStopped: (recordDuration) =>
+                  context.read<RecorderBloc>().add(
+                        RecorderEvent.recordStopped(
+                          totalDuration: recordDuration,
+                        ),
+                      ),
+            ),
+          );
+        },
       ),
     );
   }

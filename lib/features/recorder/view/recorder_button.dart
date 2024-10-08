@@ -10,7 +10,7 @@ class RecorderButton extends StatefulWidget {
   });
 
   final VoidCallback onRecordStarted;
-  final VoidCallback onRecordStopped;
+  final void Function(Duration) onRecordStopped;
 
   @override
   _RecorderButtonState createState() => _RecorderButtonState();
@@ -36,7 +36,7 @@ class _RecorderButtonState extends State<RecorderButton> {
   }
 
   void _stopRecording() {
-    widget.onRecordStopped();
+    widget.onRecordStopped(recordDuration);
     setState(() {
       isRecording = false;
       recordDuration = Duration.zero;

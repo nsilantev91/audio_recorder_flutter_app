@@ -20,7 +20,7 @@ class App extends StatelessWidget {
               BlocProvider(
                 create: (context) => RecorderBloc(
                   recorderRepository: recorderRepository,
-                )..add(const RecorderEvent.recorderInitialized()),
+                ),
               ),
             ],
             child: const RecorderView(),

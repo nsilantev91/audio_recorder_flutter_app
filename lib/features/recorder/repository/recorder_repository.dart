@@ -1,7 +1,11 @@
-abstract interface class RecorderRepository {
-  Future<void> initializeAndCheckPermissions();
+import 'package:audio_recorder_flutter_app/features/recorder/models/audio_record/record_info.dart';
 
-  Future<void> start();
+abstract interface class RecorderRepository {
+  Future<bool> initializeAndCheckPermissions();
+
+  Future<String?> start();
 
   Future<void> stop();
+
+  Future<void> saveRecordInfoToLocalStorage(RecordInfo recordInfo);
 }
