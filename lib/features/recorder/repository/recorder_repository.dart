@@ -1,5 +1,5 @@
 abstract interface class RecorderRepository {
-  Future<void> initialize();
+  Future<void> initializeAndCheckPermissions();
 
   Future<void> start();
 

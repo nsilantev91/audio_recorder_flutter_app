@@ -27,7 +27,7 @@ class RecorderBloc extends Bloc<RecorderEvent, RecorderState> {
 
   Future<void> _initialize(Emitter<RecorderState> emitter) async {
     try {
-      await _repository.initialize();
+      await _repository.initializeAndCheckPermissions();
     } on PlatformException catch (e) {
       if (e.code == 'PERMISSION_DENIED') {
         emitter(const RecorderState.permissionDenied());
