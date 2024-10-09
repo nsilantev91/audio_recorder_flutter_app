@@ -12,7 +12,9 @@ class RecorderState with _$RecorderState {
     required String activeRecordingPath,
   }) = _Recording;
 
-  const factory RecorderState.stopped() = _Stopped;
+  const factory RecorderState.stopped({
+    required RecordInfo recordInfo,
+  }) = _Stopped;
 
   const factory RecorderState.permissionDenied() = _PermissionDenied;
 

@@ -1,4 +1,6 @@
 import 'package:audio_recorder_flutter_app/app/values/app_strings.dart';
+import 'package:audio_recorder_flutter_app/features/player/bloc/player_bloc.dart';
+import 'package:audio_recorder_flutter_app/features/player/widgets/records_list.dart';
 import 'package:audio_recorder_flutter_app/features/recorder/bloc/recorder_bloc.dart';
 import 'package:audio_recorder_flutter_app/features/recorder/view/recorder_button.dart';
 import 'package:flutter/material.dart';
@@ -31,13 +33,18 @@ class _RecorderViewState extends State<RecorderView> {
               ),
         ),
       ),
-      body: Center(
-        child: Text(
-          AppStrings.noRecentRecords,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-      ),
-      bottomSheet: BlocBuilder<RecorderBloc, RecorderState>(
+      body: const RecordsList(),
+      bottomSheet: BlocConsumer<RecorderBloc, RecorderState>(
+        listener: (context, state) {
+          state.mapOrNull(
+            stopped: (stoppedState) {
+              context.read<PlayerBloc>().add(
+                    PlayerEvent.recordAdded(
+                        recordInfo: stoppedState.recordInfo),
+                  );
+            },
+          );
+        },
         builder: (context, state) {
           return state.maybeMap(
             idle: (idleState) => idleState.initialized
@@ -47,9 +54,7 @@ class _RecorderViewState extends State<RecorderView> {
                         .add(const RecorderEvent.recordStarted()),
                     onRecordStopped: (recordDuration) =>
                         context.read<RecorderBloc>().add(
-                              RecorderEvent.recordStopped(
-                                totalDuration: recordDuration,
-                              ),
+                              const RecorderEvent.recordStopped(),
                             ),
                   )
                 : const SizedBox.shrink(),
@@ -63,12 +68,11 @@ class _RecorderViewState extends State<RecorderView> {
               onRecordStarted: () => context
                   .read<RecorderBloc>()
                   .add(const RecorderEvent.recordStarted()),
-              onRecordStopped: (recordDuration) =>
-                  context.read<RecorderBloc>().add(
-                        RecorderEvent.recordStopped(
-                          totalDuration: recordDuration,
-                        ),
-                      ),
+              onRecordStopped: (recordDuration) {
+                context.read<RecorderBloc>().add(
+                      const RecorderEvent.recordStopped(),
+                    );
+              },
             ),
           );
         },

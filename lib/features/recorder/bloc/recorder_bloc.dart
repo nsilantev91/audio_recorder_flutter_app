@@ -1,4 +1,4 @@
-import 'package:audio_recorder_flutter_app/features/recorder/models/audio_record/record_info.dart';
+import 'package:audio_recorder_flutter_app/features/player/record_info/record_info.dart';
 import 'package:audio_recorder_flutter_app/features/recorder/repository/recorder_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +17,7 @@ class RecorderBloc extends Bloc<RecorderEvent, RecorderState> {
       (event, emitter) async {
         await event.map(
           recordStarted: (_) async => await _startRecord(emitter),
-          recordStopped: (event) async => await _stopRecord(event),
+          recordStopped: (event) async => await _stopRecord(event, emitter),
           recorderInitialized: (_) async => await _initialize(emitter),
         );
       },
@@ -51,16 +51,17 @@ class RecorderBloc extends Bloc<RecorderEvent, RecorderState> {
     }
   }
 
-  Future<void> _stopRecord(_RecordStopped event) async {
+  Future<void> _stopRecord(
+      _RecordStopped event, Emitter<RecorderState> emitter) async {
     try {
       await _repository.stop();
       final recordInfo = RecordInfo(
-        name: 'name',
+        name: state.currentRecordingPath?.split('/').last ?? '',
         filePath: state.currentRecordingPath ?? '',
         creationDate: DateTime.now(),
-        duration: event.totalDuration,
+        duration: Duration.zero,
       );
-      await _repository.saveRecordInfoToLocalStorage(recordInfo);
+      emitter(RecorderState.stopped(recordInfo: recordInfo));
     } on Exception catch (e) {
       addError(e, StackTrace.current);
     }

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:audio_recorder_flutter_app/features/recorder/models/audio_record/record_info.dart';
+import 'package:audio_recorder_flutter_app/features/player/record_info/record_info.dart';
 import 'package:audio_recorder_flutter_app/features/recorder/repository/recorder_repository.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,6 +33,17 @@ final class RecorderRepositoryImpl implements RecorderRepository {
 
   @override
   Future<void> saveRecordInfoToLocalStorage(RecordInfo recordInfo) async {
-    print(recordInfo);
+    final recordsList = preferences.getStringList('key');
+    if (recordsList == null) {
+      await preferences.setStringList(
+        'key',
+        [
+          recordInfo.toJson().toString(),
+        ],
+      );
+    } else {
+      recordsList.add(recordInfo.toJson().toString());
+      await preferences.setStringList('key', recordsList);
+    }
   }
 }

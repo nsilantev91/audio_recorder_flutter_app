@@ -6,7 +6,5 @@ class RecorderEvent with _$RecorderEvent {
 
   const factory RecorderEvent.recordStarted() = _RecordStarted;
 
-  const factory RecorderEvent.recordStopped({
-    required Duration totalDuration,
-  }) = _RecordStopped;
+  const factory RecorderEvent.recordStopped() = _RecordStopped;
 }
