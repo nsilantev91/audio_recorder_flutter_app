@@ -40,7 +40,8 @@ class _RecorderViewState extends State<RecorderView> {
             stopped: (stoppedState) {
               context.read<PlayerBloc>().add(
                     PlayerEvent.recordAdded(
-                        recordInfo: stoppedState.recordInfo),
+                      recordInfo: stoppedState.recordInfo,
+                    ),
                   );
             },
           );
@@ -54,7 +55,9 @@ class _RecorderViewState extends State<RecorderView> {
                         .add(const RecorderEvent.recordStarted()),
                     onRecordStopped: (recordDuration) =>
                         context.read<RecorderBloc>().add(
-                              const RecorderEvent.recordStopped(),
+                              RecorderEvent.recordStopped(
+                                recordDuration: recordDuration,
+                              ),
                             ),
                   )
                 : const SizedBox.shrink(),
@@ -70,7 +73,9 @@ class _RecorderViewState extends State<RecorderView> {
                   .add(const RecorderEvent.recordStarted()),
               onRecordStopped: (recordDuration) {
                 context.read<RecorderBloc>().add(
-                      const RecorderEvent.recordStopped(),
+                      RecorderEvent.recordStopped(
+                        recordDuration: recordDuration,
+                      ),
                     );
               },
             ),

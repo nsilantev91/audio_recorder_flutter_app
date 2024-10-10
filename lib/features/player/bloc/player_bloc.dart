@@ -12,15 +12,18 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     required PlayerRepository repository,
   })  : _repository = repository,
         super(PlayerState.loaded(records: [])) {
-    on<PlayerEvent>((event, emitter) async {
-      await event.map(
-        recordAdded: (event) async => await _saveRecord(event, emitter),
-        recordStopped: (recordInfo) {},
-        recordsLoaded: (_) async => await _loadRecords(emitter),
-        recordPlayed: (_RecordPlayed value) {},
-        recordPaused: (_RecordPaused value) {},
-      );
-    });
+    on<PlayerEvent>(
+      (event, emitter) async {
+        await event.map(
+          recordAdded: (event) async => await _saveRecord(event, emitter),
+          recordStopped: (recordInfo) {},
+          recordsLoaded: (event) async => await _loadRecords(emitter),
+          recordPlayed: (event) async => await _playRecord(event, emitter),
+          recordPaused: (_RecordPaused value) {},
+          recordSelected: (event) {},
+        );
+      },
+    );
   }
 
   final PlayerRepository _repository;
@@ -47,6 +50,14 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       emitter(PlayerState.loaded(records: records));
     } on Object catch (e) {
       emitter(PlayerState.error());
+      addError(e, StackTrace.current);
+    }
+  }
+
+  Future _playRecord(_RecordPlayed event, Emitter<PlayerState> emitter) async {
+    try {
+      await _repository.playRecord(event.recordPath);
+    } on Object catch (e) {
       addError(e, StackTrace.current);
     }
   }

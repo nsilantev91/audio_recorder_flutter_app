@@ -8,14 +8,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
-  const channel = MethodChannel('recorder_platform_channel');
+  const recorderChannel = MethodChannel('recorder_platform_channel');
+  const playerChannel = MethodChannel('player_platform_channel');
   final recorderRepository = RecorderRepositoryImpl(
-    channel: channel,
+    channel: recorderChannel,
     preferences: prefs,
   );
   final playerRepository = PlayerRepositoryImpl(
     preferences: prefs,
-    channel: channel,
+    channel: playerChannel,
   );
   runApp(
     App(

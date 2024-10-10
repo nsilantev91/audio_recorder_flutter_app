@@ -21,22 +21,9 @@ class MainActivity : FlutterActivity() {
 
         GeneratedPluginRegistrant.registerWith(flutterEngine)
 
-        flutterEngine.plugins.add(RecorderPlugin())
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 0) {
-            if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
-            } else {
-
-            }
+        flutterEngine.plugins.apply {
+            add(RecorderPlugin())
+            add(PlayerPlugin())
         }
     }
-
-
 }

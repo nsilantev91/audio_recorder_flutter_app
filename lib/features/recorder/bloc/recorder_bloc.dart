@@ -59,7 +59,7 @@ class RecorderBloc extends Bloc<RecorderEvent, RecorderState> {
         name: state.currentRecordingPath?.split('/').last ?? '',
         filePath: state.currentRecordingPath ?? '',
         creationDate: DateTime.now(),
-        duration: Duration.zero,
+        duration: event.recordDuration,
       );
       emitter(RecorderState.stopped(recordInfo: recordInfo));
     } on Exception catch (e) {

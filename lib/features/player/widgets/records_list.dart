@@ -1,3 +1,4 @@
+import 'package:audio_recorder_flutter_app/app/utils/methods.dart';
 import 'package:audio_recorder_flutter_app/app/values/app_strings.dart';
 import 'package:audio_recorder_flutter_app/features/player/bloc/player_bloc.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +35,21 @@ class _RecordsListState extends State<RecordsList> {
                   final recordInfo = state.loadedRecords[index];
                   return ListTile(
                     title: Text(recordInfo.name),
-                    subtitle: Text(recordInfo.creationDate.toString()),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () {},
+                    subtitle: Text(formatDuration(recordInfo.duration)),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.play_arrow),
+                          onPressed: () {
+                            context.read<PlayerBloc>().add(
+                                  PlayerEvent.recordPlayed(
+                                    recordPath: recordInfo.filePath,
+                                  ),
+                                );
+                          },
+                        ),
+                      ],
                     ),
                   );
                 },

@@ -23,6 +23,7 @@ mixin _$PlayerEvent {
     required TResult Function(String recordPath) recordPlayed,
     required TResult Function() recordPaused,
     required TResult Function() recordStopped,
+    required TResult Function(RecordInfo recordInfo) recordSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$PlayerEvent {
     TResult? Function(String recordPath)? recordPlayed,
     TResult? Function()? recordPaused,
     TResult? Function()? recordStopped,
+    TResult? Function(RecordInfo recordInfo)? recordSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$PlayerEvent {
     TResult Function(String recordPath)? recordPlayed,
     TResult Function()? recordPaused,
     TResult Function()? recordStopped,
+    TResult Function(RecordInfo recordInfo)? recordSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$PlayerEvent {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
+    required TResult Function(_RecordSelected value) recordSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$PlayerEvent {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
+    TResult? Function(_RecordSelected value)? recordSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$PlayerEvent {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +147,7 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     required TResult Function(String recordPath) recordPlayed,
     required TResult Function() recordPaused,
     required TResult Function() recordStopped,
+    required TResult Function(RecordInfo recordInfo) recordSelected,
   }) {
     return recordsLoaded();
   }
@@ -153,6 +160,7 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     TResult? Function(String recordPath)? recordPlayed,
     TResult? Function()? recordPaused,
     TResult? Function()? recordStopped,
+    TResult? Function(RecordInfo recordInfo)? recordSelected,
   }) {
     return recordsLoaded?.call();
   }
@@ -165,6 +173,7 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     TResult Function(String recordPath)? recordPlayed,
     TResult Function()? recordPaused,
     TResult Function()? recordStopped,
+    TResult Function(RecordInfo recordInfo)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordsLoaded != null) {
@@ -181,6 +190,7 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
+    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordsLoaded(this);
   }
@@ -193,6 +203,7 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
+    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordsLoaded?.call(this);
   }
@@ -205,6 +216,7 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordsLoaded != null) {
@@ -304,6 +316,7 @@ class _$RecordAddedImpl implements _RecordAdded {
     required TResult Function(String recordPath) recordPlayed,
     required TResult Function() recordPaused,
     required TResult Function() recordStopped,
+    required TResult Function(RecordInfo recordInfo) recordSelected,
   }) {
     return recordAdded(recordInfo);
   }
@@ -316,6 +329,7 @@ class _$RecordAddedImpl implements _RecordAdded {
     TResult? Function(String recordPath)? recordPlayed,
     TResult? Function()? recordPaused,
     TResult? Function()? recordStopped,
+    TResult? Function(RecordInfo recordInfo)? recordSelected,
   }) {
     return recordAdded?.call(recordInfo);
   }
@@ -328,6 +342,7 @@ class _$RecordAddedImpl implements _RecordAdded {
     TResult Function(String recordPath)? recordPlayed,
     TResult Function()? recordPaused,
     TResult Function()? recordStopped,
+    TResult Function(RecordInfo recordInfo)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordAdded != null) {
@@ -344,6 +359,7 @@ class _$RecordAddedImpl implements _RecordAdded {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
+    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordAdded(this);
   }
@@ -356,6 +372,7 @@ class _$RecordAddedImpl implements _RecordAdded {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
+    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordAdded?.call(this);
   }
@@ -368,6 +385,7 @@ class _$RecordAddedImpl implements _RecordAdded {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordAdded != null) {
@@ -464,6 +482,7 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     required TResult Function(String recordPath) recordPlayed,
     required TResult Function() recordPaused,
     required TResult Function() recordStopped,
+    required TResult Function(RecordInfo recordInfo) recordSelected,
   }) {
     return recordPlayed(recordPath);
   }
@@ -476,6 +495,7 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     TResult? Function(String recordPath)? recordPlayed,
     TResult? Function()? recordPaused,
     TResult? Function()? recordStopped,
+    TResult? Function(RecordInfo recordInfo)? recordSelected,
   }) {
     return recordPlayed?.call(recordPath);
   }
@@ -488,6 +508,7 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     TResult Function(String recordPath)? recordPlayed,
     TResult Function()? recordPaused,
     TResult Function()? recordStopped,
+    TResult Function(RecordInfo recordInfo)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordPlayed != null) {
@@ -504,6 +525,7 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
+    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordPlayed(this);
   }
@@ -516,6 +538,7 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
+    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordPlayed?.call(this);
   }
@@ -528,6 +551,7 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordPlayed != null) {
@@ -596,6 +620,7 @@ class _$RecordPausedImpl implements _RecordPaused {
     required TResult Function(String recordPath) recordPlayed,
     required TResult Function() recordPaused,
     required TResult Function() recordStopped,
+    required TResult Function(RecordInfo recordInfo) recordSelected,
   }) {
     return recordPaused();
   }
@@ -608,6 +633,7 @@ class _$RecordPausedImpl implements _RecordPaused {
     TResult? Function(String recordPath)? recordPlayed,
     TResult? Function()? recordPaused,
     TResult? Function()? recordStopped,
+    TResult? Function(RecordInfo recordInfo)? recordSelected,
   }) {
     return recordPaused?.call();
   }
@@ -620,6 +646,7 @@ class _$RecordPausedImpl implements _RecordPaused {
     TResult Function(String recordPath)? recordPlayed,
     TResult Function()? recordPaused,
     TResult Function()? recordStopped,
+    TResult Function(RecordInfo recordInfo)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordPaused != null) {
@@ -636,6 +663,7 @@ class _$RecordPausedImpl implements _RecordPaused {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
+    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordPaused(this);
   }
@@ -648,6 +676,7 @@ class _$RecordPausedImpl implements _RecordPaused {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
+    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordPaused?.call(this);
   }
@@ -660,6 +689,7 @@ class _$RecordPausedImpl implements _RecordPaused {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordPaused != null) {
@@ -719,6 +749,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
     required TResult Function(String recordPath) recordPlayed,
     required TResult Function() recordPaused,
     required TResult Function() recordStopped,
+    required TResult Function(RecordInfo recordInfo) recordSelected,
   }) {
     return recordStopped();
   }
@@ -731,6 +762,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
     TResult? Function(String recordPath)? recordPlayed,
     TResult? Function()? recordPaused,
     TResult? Function()? recordStopped,
+    TResult? Function(RecordInfo recordInfo)? recordSelected,
   }) {
     return recordStopped?.call();
   }
@@ -743,6 +775,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
     TResult Function(String recordPath)? recordPlayed,
     TResult Function()? recordPaused,
     TResult Function()? recordStopped,
+    TResult Function(RecordInfo recordInfo)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordStopped != null) {
@@ -759,6 +792,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
+    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordStopped(this);
   }
@@ -771,6 +805,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
+    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordStopped?.call(this);
   }
@@ -783,6 +818,7 @@ class _$RecordStoppedImpl implements _RecordStopped {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordStopped != null) {
@@ -794,6 +830,185 @@ class _$RecordStoppedImpl implements _RecordStopped {
 
 abstract class _RecordStopped implements PlayerEvent {
   const factory _RecordStopped() = _$RecordStoppedImpl;
+}
+
+/// @nodoc
+abstract class _$$RecordSelectedImplCopyWith<$Res> {
+  factory _$$RecordSelectedImplCopyWith(_$RecordSelectedImpl value,
+          $Res Function(_$RecordSelectedImpl) then) =
+      __$$RecordSelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({RecordInfo recordInfo});
+
+  $RecordInfoCopyWith<$Res> get recordInfo;
+}
+
+/// @nodoc
+class __$$RecordSelectedImplCopyWithImpl<$Res>
+    extends _$PlayerEventCopyWithImpl<$Res, _$RecordSelectedImpl>
+    implements _$$RecordSelectedImplCopyWith<$Res> {
+  __$$RecordSelectedImplCopyWithImpl(
+      _$RecordSelectedImpl _value, $Res Function(_$RecordSelectedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? recordInfo = null,
+  }) {
+    return _then(_$RecordSelectedImpl(
+      recordInfo: null == recordInfo
+          ? _value.recordInfo
+          : recordInfo // ignore: cast_nullable_to_non_nullable
+              as RecordInfo,
+    ));
+  }
+
+  /// Create a copy of PlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RecordInfoCopyWith<$Res> get recordInfo {
+    return $RecordInfoCopyWith<$Res>(_value.recordInfo, (value) {
+      return _then(_value.copyWith(recordInfo: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RecordSelectedImpl implements _RecordSelected {
+  const _$RecordSelectedImpl({required this.recordInfo});
+
+  @override
+  final RecordInfo recordInfo;
+
+  @override
+  String toString() {
+    return 'PlayerEvent.recordSelected(recordInfo: $recordInfo)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RecordSelectedImpl &&
+            (identical(other.recordInfo, recordInfo) ||
+                other.recordInfo == recordInfo));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, recordInfo);
+
+  /// Create a copy of PlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RecordSelectedImplCopyWith<_$RecordSelectedImpl> get copyWith =>
+      __$$RecordSelectedImplCopyWithImpl<_$RecordSelectedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() recordsLoaded,
+    required TResult Function(RecordInfo recordInfo) recordAdded,
+    required TResult Function(String recordPath) recordPlayed,
+    required TResult Function() recordPaused,
+    required TResult Function() recordStopped,
+    required TResult Function(RecordInfo recordInfo) recordSelected,
+  }) {
+    return recordSelected(recordInfo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? recordsLoaded,
+    TResult? Function(RecordInfo recordInfo)? recordAdded,
+    TResult? Function(String recordPath)? recordPlayed,
+    TResult? Function()? recordPaused,
+    TResult? Function()? recordStopped,
+    TResult? Function(RecordInfo recordInfo)? recordSelected,
+  }) {
+    return recordSelected?.call(recordInfo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? recordsLoaded,
+    TResult Function(RecordInfo recordInfo)? recordAdded,
+    TResult Function(String recordPath)? recordPlayed,
+    TResult Function()? recordPaused,
+    TResult Function()? recordStopped,
+    TResult Function(RecordInfo recordInfo)? recordSelected,
+    required TResult orElse(),
+  }) {
+    if (recordSelected != null) {
+      return recordSelected(recordInfo);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RecordsLoaded value) recordsLoaded,
+    required TResult Function(_RecordAdded value) recordAdded,
+    required TResult Function(_RecordPlayed value) recordPlayed,
+    required TResult Function(_RecordPaused value) recordPaused,
+    required TResult Function(_RecordStopped value) recordStopped,
+    required TResult Function(_RecordSelected value) recordSelected,
+  }) {
+    return recordSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_RecordsLoaded value)? recordsLoaded,
+    TResult? Function(_RecordAdded value)? recordAdded,
+    TResult? Function(_RecordPlayed value)? recordPlayed,
+    TResult? Function(_RecordPaused value)? recordPaused,
+    TResult? Function(_RecordStopped value)? recordStopped,
+    TResult? Function(_RecordSelected value)? recordSelected,
+  }) {
+    return recordSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RecordsLoaded value)? recordsLoaded,
+    TResult Function(_RecordAdded value)? recordAdded,
+    TResult Function(_RecordPlayed value)? recordPlayed,
+    TResult Function(_RecordPaused value)? recordPaused,
+    TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_RecordSelected value)? recordSelected,
+    required TResult orElse(),
+  }) {
+    if (recordSelected != null) {
+      return recordSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RecordSelected implements PlayerEvent {
+  const factory _RecordSelected({required final RecordInfo recordInfo}) =
+      _$RecordSelectedImpl;
+
+  RecordInfo get recordInfo;
+
+  /// Create a copy of PlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RecordSelectedImplCopyWith<_$RecordSelectedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

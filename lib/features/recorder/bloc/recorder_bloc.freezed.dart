@@ -20,21 +20,21 @@ mixin _$RecorderEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() recorderInitialized,
     required TResult Function() recordStarted,
-    required TResult Function() recordStopped,
+    required TResult Function(Duration recordDuration) recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recorderInitialized,
     TResult? Function()? recordStarted,
-    TResult? Function()? recordStopped,
+    TResult? Function(Duration recordDuration)? recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recorderInitialized,
     TResult Function()? recordStarted,
-    TResult Function()? recordStopped,
+    TResult Function(Duration recordDuration)? recordStopped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,7 +127,7 @@ class _$RecorderInitializedImpl implements _RecorderInitialized {
   TResult when<TResult extends Object?>({
     required TResult Function() recorderInitialized,
     required TResult Function() recordStarted,
-    required TResult Function() recordStopped,
+    required TResult Function(Duration recordDuration) recordStopped,
   }) {
     return recorderInitialized();
   }
@@ -137,7 +137,7 @@ class _$RecorderInitializedImpl implements _RecorderInitialized {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recorderInitialized,
     TResult? Function()? recordStarted,
-    TResult? Function()? recordStopped,
+    TResult? Function(Duration recordDuration)? recordStopped,
   }) {
     return recorderInitialized?.call();
   }
@@ -147,7 +147,7 @@ class _$RecorderInitializedImpl implements _RecorderInitialized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recorderInitialized,
     TResult Function()? recordStarted,
-    TResult Function()? recordStopped,
+    TResult Function(Duration recordDuration)? recordStopped,
     required TResult orElse(),
   }) {
     if (recorderInitialized != null) {
@@ -238,7 +238,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() recorderInitialized,
     required TResult Function() recordStarted,
-    required TResult Function() recordStopped,
+    required TResult Function(Duration recordDuration) recordStopped,
   }) {
     return recordStarted();
   }
@@ -248,7 +248,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recorderInitialized,
     TResult? Function()? recordStarted,
-    TResult? Function()? recordStopped,
+    TResult? Function(Duration recordDuration)? recordStopped,
   }) {
     return recordStarted?.call();
   }
@@ -258,7 +258,7 @@ class _$RecordStartedImpl implements _RecordStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recorderInitialized,
     TResult Function()? recordStarted,
-    TResult Function()? recordStopped,
+    TResult Function(Duration recordDuration)? recordStopped,
     required TResult orElse(),
   }) {
     if (recordStarted != null) {
@@ -311,6 +311,8 @@ abstract class _$$RecordStoppedImplCopyWith<$Res> {
   factory _$$RecordStoppedImplCopyWith(
           _$RecordStoppedImpl value, $Res Function(_$RecordStoppedImpl) then) =
       __$$RecordStoppedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Duration recordDuration});
 }
 
 /// @nodoc
@@ -323,35 +325,61 @@ class __$$RecordStoppedImplCopyWithImpl<$Res>
 
   /// Create a copy of RecorderEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? recordDuration = null,
+  }) {
+    return _then(_$RecordStoppedImpl(
+      recordDuration: null == recordDuration
+          ? _value.recordDuration
+          : recordDuration // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$RecordStoppedImpl implements _RecordStopped {
-  const _$RecordStoppedImpl();
+  const _$RecordStoppedImpl({required this.recordDuration});
+
+  @override
+  final Duration recordDuration;
 
   @override
   String toString() {
-    return 'RecorderEvent.recordStopped()';
+    return 'RecorderEvent.recordStopped(recordDuration: $recordDuration)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RecordStoppedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$RecordStoppedImpl &&
+            (identical(other.recordDuration, recordDuration) ||
+                other.recordDuration == recordDuration));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, recordDuration);
+
+  /// Create a copy of RecorderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RecordStoppedImplCopyWith<_$RecordStoppedImpl> get copyWith =>
+      __$$RecordStoppedImplCopyWithImpl<_$RecordStoppedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() recorderInitialized,
     required TResult Function() recordStarted,
-    required TResult Function() recordStopped,
+    required TResult Function(Duration recordDuration) recordStopped,
   }) {
-    return recordStopped();
+    return recordStopped(recordDuration);
   }
 
   @override
@@ -359,9 +387,9 @@ class _$RecordStoppedImpl implements _RecordStopped {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recorderInitialized,
     TResult? Function()? recordStarted,
-    TResult? Function()? recordStopped,
+    TResult? Function(Duration recordDuration)? recordStopped,
   }) {
-    return recordStopped?.call();
+    return recordStopped?.call(recordDuration);
   }
 
   @override
@@ -369,11 +397,11 @@ class _$RecordStoppedImpl implements _RecordStopped {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recorderInitialized,
     TResult Function()? recordStarted,
-    TResult Function()? recordStopped,
+    TResult Function(Duration recordDuration)? recordStopped,
     required TResult orElse(),
   }) {
     if (recordStopped != null) {
-      return recordStopped();
+      return recordStopped(recordDuration);
     }
     return orElse();
   }
@@ -414,7 +442,16 @@ class _$RecordStoppedImpl implements _RecordStopped {
 }
 
 abstract class _RecordStopped implements RecorderEvent {
-  const factory _RecordStopped() = _$RecordStoppedImpl;
+  const factory _RecordStopped({required final Duration recordDuration}) =
+      _$RecordStoppedImpl;
+
+  Duration get recordDuration;
+
+  /// Create a copy of RecorderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RecordStoppedImplCopyWith<_$RecordStoppedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -4,4 +4,6 @@ abstract interface class PlayerRepository {
   Future<void> saveRecordInfo(RecordInfo recordInfo);
 
   Future<List<RecordInfo>> fetchRecords();
+
+  Future<void> playRecord(String recordPath);
 }

@@ -15,4 +15,8 @@ class PlayerEvent with _$PlayerEvent {
   const factory PlayerEvent.recordPaused() = _RecordPaused;
 
   const factory PlayerEvent.recordStopped() = _RecordStopped;
+
+  const factory PlayerEvent.recordSelected({
+    required RecordInfo recordInfo,
+  }) = _RecordSelected;
 }

@@ -32,12 +32,19 @@ final class PlayerRepositoryImpl implements PlayerRepository {
   @override
   Future<List<RecordInfo>> fetchRecords() {
     final recordsList = preferences.getStringList(_recordsPrefsKey);
-    return Future.value(recordsList?.map(
-          (e) {
-            final json = jsonDecode(e) as Map<String, dynamic>;
-            return RecordInfo.fromJson(json);
-          },
-        ).toList() ??
-        []);
+    return Future.value(
+      recordsList?.map(
+            (e) {
+              final json = jsonDecode(e) as Map<String, dynamic>;
+              return RecordInfo.fromJson(json);
+            },
+          ).toList() ??
+          [],
+    );
+  }
+
+  @override
+  Future<void> playRecord(String recordPath) async {
+    await channel.invokeMethod('play', <String, String>{'path': recordPath});
   }
 }

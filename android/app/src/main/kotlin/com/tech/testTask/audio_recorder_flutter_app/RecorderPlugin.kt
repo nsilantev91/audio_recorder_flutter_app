@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
+import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -19,11 +20,20 @@ class RecorderPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityA
 
     private lateinit var channel: MethodChannel
     private var recorder: MediaRecorder? = null
+
     private var activity: Activity? = null
 
     private val requiredPermissions = arrayOf(
-        Manifest.permission.RECORD_AUDIO
-    )
+        Manifest.permission.RECORD_AUDIO, if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        } else {
+            null
+        }, if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        } else {
+            null
+        }
+    ).filterNotNull().toTypedArray() // Убираем null значения
 
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
@@ -68,8 +78,7 @@ class RecorderPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityA
     private fun checkAndRequestPermissions(): Boolean {
         val permissionsToRequest = requiredPermissions.filter {
             ContextCompat.checkSelfPermission(
-                activity!!.baseContext,
-                it
+                activity!!.baseContext, it
             ) != PackageManager.PERMISSION_GRANTED
         }
 
@@ -92,26 +101,36 @@ class RecorderPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityA
     }
 
     private fun startRecording(): String {
-        val dateFormat = SimpleDateFormat("dd-MM-yyyy_HH:mm:ss", Locale.getDefault())
-        val now = Date()
-        val formattedDate = dateFormat.format(now)
+        try {
+            val dateFormat = SimpleDateFormat("dd-MM-yyyy_HH:mm:ss", Locale.getDefault())
+            val now = Date()
+            val formattedDate = dateFormat.format(now)
 
-        val filePath = "${activity?.externalCacheDir?.absolutePath}/audio_$formattedDate.aac"
-
-        recorder?.apply {
-            setOutputFile(filePath)
-            prepare()
-            start()
+            val filePath = "${activity?.externalCacheDir?.absolutePath}/audio_$formattedDate.aac"
+            initialize()
+            recorder!!.apply {
+                setOutputFile(filePath)
+                prepare()
+                start()
+            }
+            return filePath
+        } catch (e: Exception) {
+            e.message?.let { }
         }
-
-        return filePath
+        return ""
     }
 
     private fun stopRecording() {
-        recorder?.apply {
-            stop()
-            release()
+        try {
+            recorder!!.apply {
+                stop()
+                release()
+            }
+            recorder = null
+        } catch (e: Exception) {
+            e.message?.let { }
         }
+
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {

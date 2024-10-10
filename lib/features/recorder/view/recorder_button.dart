@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audio_recorder_flutter_app/app/utils/methods.dart';
 import 'package:flutter/material.dart';
 
 class RecorderButton extends StatefulWidget {
@@ -44,13 +45,6 @@ class _RecorderButtonState extends State<RecorderButton> {
     timer?.cancel();
   }
 
-  String _formatDuration(Duration duration) {
-    String twoDigits(int n) => n.toString().padLeft(2, '0');
-    String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
-    String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-    return '${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds';
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -79,7 +73,7 @@ class _RecorderButtonState extends State<RecorderButton> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Text(
-            _formatDuration(recordDuration),
+            formatDuration(recordDuration),
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
