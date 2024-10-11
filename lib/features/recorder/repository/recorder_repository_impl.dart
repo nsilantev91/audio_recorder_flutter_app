@@ -14,7 +14,7 @@ final class RecorderRepositoryImpl implements RecorderRepository {
   @override
   Future<bool> initializeAndCheckPermissions() async {
     final completer = Completer<bool>();
-    await channel.invokeMethod('initialize');
+    await channel.invokeMethod('checkPermissions');
     channel.setMethodCallHandler((call) async {
       if (call.method == 'onPermissionResult') {
         final result = call.arguments as bool;

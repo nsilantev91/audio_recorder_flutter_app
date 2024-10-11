@@ -47,11 +47,10 @@ class RecorderPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityA
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
-            "initialize" -> {
+            "checkPermissions" -> {
                 if (checkAndRequestPermissions()) {
                     channel.invokeMethod("onPermissionResult", true)
                 }
-                initialize()
                 result.success(null)
             }
 

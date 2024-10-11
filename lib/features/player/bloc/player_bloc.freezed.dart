@@ -20,30 +20,30 @@ mixin _$PlayerEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() recordsLoaded,
     required TResult Function(RecordInfo recordInfo) recordAdded,
-    required TResult Function(String recordPath) recordPlayed,
-    required TResult Function() recordPaused,
-    required TResult Function() recordStopped,
-    required TResult Function(RecordInfo recordInfo) recordSelected,
+    required TResult Function(Completer<dynamic> completer, String recordPath)
+        recordPlayed,
+    required TResult Function(Completer<dynamic> completer) recordPaused,
+    required TResult Function(Completer<dynamic> completer) recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recordsLoaded,
     TResult? Function(RecordInfo recordInfo)? recordAdded,
-    TResult? Function(String recordPath)? recordPlayed,
-    TResult? Function()? recordPaused,
-    TResult? Function()? recordStopped,
-    TResult? Function(RecordInfo recordInfo)? recordSelected,
+    TResult? Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult? Function(Completer<dynamic> completer)? recordPaused,
+    TResult? Function(Completer<dynamic> completer)? recordStopped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recordsLoaded,
     TResult Function(RecordInfo recordInfo)? recordAdded,
-    TResult Function(String recordPath)? recordPlayed,
-    TResult Function()? recordPaused,
-    TResult Function()? recordStopped,
-    TResult Function(RecordInfo recordInfo)? recordSelected,
+    TResult Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult Function(Completer<dynamic> completer)? recordPaused,
+    TResult Function(Completer<dynamic> completer)? recordStopped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,7 +54,6 @@ mixin _$PlayerEvent {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
-    required TResult Function(_RecordSelected value) recordSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,7 +63,6 @@ mixin _$PlayerEvent {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
-    TResult? Function(_RecordSelected value)? recordSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,7 +72,6 @@ mixin _$PlayerEvent {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
-    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,10 +141,10 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() recordsLoaded,
     required TResult Function(RecordInfo recordInfo) recordAdded,
-    required TResult Function(String recordPath) recordPlayed,
-    required TResult Function() recordPaused,
-    required TResult Function() recordStopped,
-    required TResult Function(RecordInfo recordInfo) recordSelected,
+    required TResult Function(Completer<dynamic> completer, String recordPath)
+        recordPlayed,
+    required TResult Function(Completer<dynamic> completer) recordPaused,
+    required TResult Function(Completer<dynamic> completer) recordStopped,
   }) {
     return recordsLoaded();
   }
@@ -157,10 +154,10 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recordsLoaded,
     TResult? Function(RecordInfo recordInfo)? recordAdded,
-    TResult? Function(String recordPath)? recordPlayed,
-    TResult? Function()? recordPaused,
-    TResult? Function()? recordStopped,
-    TResult? Function(RecordInfo recordInfo)? recordSelected,
+    TResult? Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult? Function(Completer<dynamic> completer)? recordPaused,
+    TResult? Function(Completer<dynamic> completer)? recordStopped,
   }) {
     return recordsLoaded?.call();
   }
@@ -170,10 +167,10 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recordsLoaded,
     TResult Function(RecordInfo recordInfo)? recordAdded,
-    TResult Function(String recordPath)? recordPlayed,
-    TResult Function()? recordPaused,
-    TResult Function()? recordStopped,
-    TResult Function(RecordInfo recordInfo)? recordSelected,
+    TResult Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult Function(Completer<dynamic> completer)? recordPaused,
+    TResult Function(Completer<dynamic> completer)? recordStopped,
     required TResult orElse(),
   }) {
     if (recordsLoaded != null) {
@@ -190,7 +187,6 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
-    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordsLoaded(this);
   }
@@ -203,7 +199,6 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
-    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordsLoaded?.call(this);
   }
@@ -216,7 +211,6 @@ class _$RecordsLoadedImpl implements _RecordsLoaded {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
-    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordsLoaded != null) {
@@ -313,10 +307,10 @@ class _$RecordAddedImpl implements _RecordAdded {
   TResult when<TResult extends Object?>({
     required TResult Function() recordsLoaded,
     required TResult Function(RecordInfo recordInfo) recordAdded,
-    required TResult Function(String recordPath) recordPlayed,
-    required TResult Function() recordPaused,
-    required TResult Function() recordStopped,
-    required TResult Function(RecordInfo recordInfo) recordSelected,
+    required TResult Function(Completer<dynamic> completer, String recordPath)
+        recordPlayed,
+    required TResult Function(Completer<dynamic> completer) recordPaused,
+    required TResult Function(Completer<dynamic> completer) recordStopped,
   }) {
     return recordAdded(recordInfo);
   }
@@ -326,10 +320,10 @@ class _$RecordAddedImpl implements _RecordAdded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recordsLoaded,
     TResult? Function(RecordInfo recordInfo)? recordAdded,
-    TResult? Function(String recordPath)? recordPlayed,
-    TResult? Function()? recordPaused,
-    TResult? Function()? recordStopped,
-    TResult? Function(RecordInfo recordInfo)? recordSelected,
+    TResult? Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult? Function(Completer<dynamic> completer)? recordPaused,
+    TResult? Function(Completer<dynamic> completer)? recordStopped,
   }) {
     return recordAdded?.call(recordInfo);
   }
@@ -339,10 +333,10 @@ class _$RecordAddedImpl implements _RecordAdded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recordsLoaded,
     TResult Function(RecordInfo recordInfo)? recordAdded,
-    TResult Function(String recordPath)? recordPlayed,
-    TResult Function()? recordPaused,
-    TResult Function()? recordStopped,
-    TResult Function(RecordInfo recordInfo)? recordSelected,
+    TResult Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult Function(Completer<dynamic> completer)? recordPaused,
+    TResult Function(Completer<dynamic> completer)? recordStopped,
     required TResult orElse(),
   }) {
     if (recordAdded != null) {
@@ -359,7 +353,6 @@ class _$RecordAddedImpl implements _RecordAdded {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
-    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordAdded(this);
   }
@@ -372,7 +365,6 @@ class _$RecordAddedImpl implements _RecordAdded {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
-    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordAdded?.call(this);
   }
@@ -385,7 +377,6 @@ class _$RecordAddedImpl implements _RecordAdded {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
-    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordAdded != null) {
@@ -414,7 +405,7 @@ abstract class _$$RecordPlayedImplCopyWith<$Res> {
           _$RecordPlayedImpl value, $Res Function(_$RecordPlayedImpl) then) =
       __$$RecordPlayedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String recordPath});
+  $Res call({Completer<dynamic> completer, String recordPath});
 }
 
 /// @nodoc
@@ -430,9 +421,14 @@ class __$$RecordPlayedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? completer = null,
     Object? recordPath = null,
   }) {
     return _then(_$RecordPlayedImpl(
+      completer: null == completer
+          ? _value.completer
+          : completer // ignore: cast_nullable_to_non_nullable
+              as Completer<dynamic>,
       recordPath: null == recordPath
           ? _value.recordPath
           : recordPath // ignore: cast_nullable_to_non_nullable
@@ -444,14 +440,16 @@ class __$$RecordPlayedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RecordPlayedImpl implements _RecordPlayed {
-  const _$RecordPlayedImpl({required this.recordPath});
+  const _$RecordPlayedImpl({required this.completer, required this.recordPath});
 
+  @override
+  final Completer<dynamic> completer;
   @override
   final String recordPath;
 
   @override
   String toString() {
-    return 'PlayerEvent.recordPlayed(recordPath: $recordPath)';
+    return 'PlayerEvent.recordPlayed(completer: $completer, recordPath: $recordPath)';
   }
 
   @override
@@ -459,12 +457,14 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordPlayedImpl &&
+            (identical(other.completer, completer) ||
+                other.completer == completer) &&
             (identical(other.recordPath, recordPath) ||
                 other.recordPath == recordPath));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, recordPath);
+  int get hashCode => Object.hash(runtimeType, completer, recordPath);
 
   /// Create a copy of PlayerEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -479,12 +479,12 @@ class _$RecordPlayedImpl implements _RecordPlayed {
   TResult when<TResult extends Object?>({
     required TResult Function() recordsLoaded,
     required TResult Function(RecordInfo recordInfo) recordAdded,
-    required TResult Function(String recordPath) recordPlayed,
-    required TResult Function() recordPaused,
-    required TResult Function() recordStopped,
-    required TResult Function(RecordInfo recordInfo) recordSelected,
+    required TResult Function(Completer<dynamic> completer, String recordPath)
+        recordPlayed,
+    required TResult Function(Completer<dynamic> completer) recordPaused,
+    required TResult Function(Completer<dynamic> completer) recordStopped,
   }) {
-    return recordPlayed(recordPath);
+    return recordPlayed(completer, recordPath);
   }
 
   @override
@@ -492,12 +492,12 @@ class _$RecordPlayedImpl implements _RecordPlayed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recordsLoaded,
     TResult? Function(RecordInfo recordInfo)? recordAdded,
-    TResult? Function(String recordPath)? recordPlayed,
-    TResult? Function()? recordPaused,
-    TResult? Function()? recordStopped,
-    TResult? Function(RecordInfo recordInfo)? recordSelected,
+    TResult? Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult? Function(Completer<dynamic> completer)? recordPaused,
+    TResult? Function(Completer<dynamic> completer)? recordStopped,
   }) {
-    return recordPlayed?.call(recordPath);
+    return recordPlayed?.call(completer, recordPath);
   }
 
   @override
@@ -505,14 +505,14 @@ class _$RecordPlayedImpl implements _RecordPlayed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recordsLoaded,
     TResult Function(RecordInfo recordInfo)? recordAdded,
-    TResult Function(String recordPath)? recordPlayed,
-    TResult Function()? recordPaused,
-    TResult Function()? recordStopped,
-    TResult Function(RecordInfo recordInfo)? recordSelected,
+    TResult Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult Function(Completer<dynamic> completer)? recordPaused,
+    TResult Function(Completer<dynamic> completer)? recordStopped,
     required TResult orElse(),
   }) {
     if (recordPlayed != null) {
-      return recordPlayed(recordPath);
+      return recordPlayed(completer, recordPath);
     }
     return orElse();
   }
@@ -525,7 +525,6 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
-    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordPlayed(this);
   }
@@ -538,7 +537,6 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
-    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordPlayed?.call(this);
   }
@@ -551,7 +549,6 @@ class _$RecordPlayedImpl implements _RecordPlayed {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
-    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordPlayed != null) {
@@ -562,9 +559,11 @@ class _$RecordPlayedImpl implements _RecordPlayed {
 }
 
 abstract class _RecordPlayed implements PlayerEvent {
-  const factory _RecordPlayed({required final String recordPath}) =
-      _$RecordPlayedImpl;
+  const factory _RecordPlayed(
+      {required final Completer<dynamic> completer,
+      required final String recordPath}) = _$RecordPlayedImpl;
 
+  Completer<dynamic> get completer;
   String get recordPath;
 
   /// Create a copy of PlayerEvent
@@ -579,6 +578,8 @@ abstract class _$$RecordPausedImplCopyWith<$Res> {
   factory _$$RecordPausedImplCopyWith(
           _$RecordPausedImpl value, $Res Function(_$RecordPausedImpl) then) =
       __$$RecordPausedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Completer<dynamic> completer});
 }
 
 /// @nodoc
@@ -591,38 +592,64 @@ class __$$RecordPausedImplCopyWithImpl<$Res>
 
   /// Create a copy of PlayerEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? completer = null,
+  }) {
+    return _then(_$RecordPausedImpl(
+      completer: null == completer
+          ? _value.completer
+          : completer // ignore: cast_nullable_to_non_nullable
+              as Completer<dynamic>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$RecordPausedImpl implements _RecordPaused {
-  const _$RecordPausedImpl();
+  const _$RecordPausedImpl({required this.completer});
+
+  @override
+  final Completer<dynamic> completer;
 
   @override
   String toString() {
-    return 'PlayerEvent.recordPaused()';
+    return 'PlayerEvent.recordPaused(completer: $completer)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RecordPausedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$RecordPausedImpl &&
+            (identical(other.completer, completer) ||
+                other.completer == completer));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, completer);
+
+  /// Create a copy of PlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RecordPausedImplCopyWith<_$RecordPausedImpl> get copyWith =>
+      __$$RecordPausedImplCopyWithImpl<_$RecordPausedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() recordsLoaded,
     required TResult Function(RecordInfo recordInfo) recordAdded,
-    required TResult Function(String recordPath) recordPlayed,
-    required TResult Function() recordPaused,
-    required TResult Function() recordStopped,
-    required TResult Function(RecordInfo recordInfo) recordSelected,
+    required TResult Function(Completer<dynamic> completer, String recordPath)
+        recordPlayed,
+    required TResult Function(Completer<dynamic> completer) recordPaused,
+    required TResult Function(Completer<dynamic> completer) recordStopped,
   }) {
-    return recordPaused();
+    return recordPaused(completer);
   }
 
   @override
@@ -630,12 +657,12 @@ class _$RecordPausedImpl implements _RecordPaused {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recordsLoaded,
     TResult? Function(RecordInfo recordInfo)? recordAdded,
-    TResult? Function(String recordPath)? recordPlayed,
-    TResult? Function()? recordPaused,
-    TResult? Function()? recordStopped,
-    TResult? Function(RecordInfo recordInfo)? recordSelected,
+    TResult? Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult? Function(Completer<dynamic> completer)? recordPaused,
+    TResult? Function(Completer<dynamic> completer)? recordStopped,
   }) {
-    return recordPaused?.call();
+    return recordPaused?.call(completer);
   }
 
   @override
@@ -643,14 +670,14 @@ class _$RecordPausedImpl implements _RecordPaused {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recordsLoaded,
     TResult Function(RecordInfo recordInfo)? recordAdded,
-    TResult Function(String recordPath)? recordPlayed,
-    TResult Function()? recordPaused,
-    TResult Function()? recordStopped,
-    TResult Function(RecordInfo recordInfo)? recordSelected,
+    TResult Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult Function(Completer<dynamic> completer)? recordPaused,
+    TResult Function(Completer<dynamic> completer)? recordStopped,
     required TResult orElse(),
   }) {
     if (recordPaused != null) {
-      return recordPaused();
+      return recordPaused(completer);
     }
     return orElse();
   }
@@ -663,7 +690,6 @@ class _$RecordPausedImpl implements _RecordPaused {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
-    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordPaused(this);
   }
@@ -676,7 +702,6 @@ class _$RecordPausedImpl implements _RecordPaused {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
-    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordPaused?.call(this);
   }
@@ -689,7 +714,6 @@ class _$RecordPausedImpl implements _RecordPaused {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
-    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordPaused != null) {
@@ -700,7 +724,16 @@ class _$RecordPausedImpl implements _RecordPaused {
 }
 
 abstract class _RecordPaused implements PlayerEvent {
-  const factory _RecordPaused() = _$RecordPausedImpl;
+  const factory _RecordPaused({required final Completer<dynamic> completer}) =
+      _$RecordPausedImpl;
+
+  Completer<dynamic> get completer;
+
+  /// Create a copy of PlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RecordPausedImplCopyWith<_$RecordPausedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -708,6 +741,8 @@ abstract class _$$RecordStoppedImplCopyWith<$Res> {
   factory _$$RecordStoppedImplCopyWith(
           _$RecordStoppedImpl value, $Res Function(_$RecordStoppedImpl) then) =
       __$$RecordStoppedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Completer<dynamic> completer});
 }
 
 /// @nodoc
@@ -720,38 +755,64 @@ class __$$RecordStoppedImplCopyWithImpl<$Res>
 
   /// Create a copy of PlayerEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? completer = null,
+  }) {
+    return _then(_$RecordStoppedImpl(
+      completer: null == completer
+          ? _value.completer
+          : completer // ignore: cast_nullable_to_non_nullable
+              as Completer<dynamic>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$RecordStoppedImpl implements _RecordStopped {
-  const _$RecordStoppedImpl();
+  const _$RecordStoppedImpl({required this.completer});
+
+  @override
+  final Completer<dynamic> completer;
 
   @override
   String toString() {
-    return 'PlayerEvent.recordStopped()';
+    return 'PlayerEvent.recordStopped(completer: $completer)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RecordStoppedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$RecordStoppedImpl &&
+            (identical(other.completer, completer) ||
+                other.completer == completer));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, completer);
+
+  /// Create a copy of PlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RecordStoppedImplCopyWith<_$RecordStoppedImpl> get copyWith =>
+      __$$RecordStoppedImplCopyWithImpl<_$RecordStoppedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() recordsLoaded,
     required TResult Function(RecordInfo recordInfo) recordAdded,
-    required TResult Function(String recordPath) recordPlayed,
-    required TResult Function() recordPaused,
-    required TResult Function() recordStopped,
-    required TResult Function(RecordInfo recordInfo) recordSelected,
+    required TResult Function(Completer<dynamic> completer, String recordPath)
+        recordPlayed,
+    required TResult Function(Completer<dynamic> completer) recordPaused,
+    required TResult Function(Completer<dynamic> completer) recordStopped,
   }) {
-    return recordStopped();
+    return recordStopped(completer);
   }
 
   @override
@@ -759,12 +820,12 @@ class _$RecordStoppedImpl implements _RecordStopped {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? recordsLoaded,
     TResult? Function(RecordInfo recordInfo)? recordAdded,
-    TResult? Function(String recordPath)? recordPlayed,
-    TResult? Function()? recordPaused,
-    TResult? Function()? recordStopped,
-    TResult? Function(RecordInfo recordInfo)? recordSelected,
+    TResult? Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult? Function(Completer<dynamic> completer)? recordPaused,
+    TResult? Function(Completer<dynamic> completer)? recordStopped,
   }) {
-    return recordStopped?.call();
+    return recordStopped?.call(completer);
   }
 
   @override
@@ -772,14 +833,14 @@ class _$RecordStoppedImpl implements _RecordStopped {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? recordsLoaded,
     TResult Function(RecordInfo recordInfo)? recordAdded,
-    TResult Function(String recordPath)? recordPlayed,
-    TResult Function()? recordPaused,
-    TResult Function()? recordStopped,
-    TResult Function(RecordInfo recordInfo)? recordSelected,
+    TResult Function(Completer<dynamic> completer, String recordPath)?
+        recordPlayed,
+    TResult Function(Completer<dynamic> completer)? recordPaused,
+    TResult Function(Completer<dynamic> completer)? recordStopped,
     required TResult orElse(),
   }) {
     if (recordStopped != null) {
-      return recordStopped();
+      return recordStopped(completer);
     }
     return orElse();
   }
@@ -792,7 +853,6 @@ class _$RecordStoppedImpl implements _RecordStopped {
     required TResult Function(_RecordPlayed value) recordPlayed,
     required TResult Function(_RecordPaused value) recordPaused,
     required TResult Function(_RecordStopped value) recordStopped,
-    required TResult Function(_RecordSelected value) recordSelected,
   }) {
     return recordStopped(this);
   }
@@ -805,7 +865,6 @@ class _$RecordStoppedImpl implements _RecordStopped {
     TResult? Function(_RecordPlayed value)? recordPlayed,
     TResult? Function(_RecordPaused value)? recordPaused,
     TResult? Function(_RecordStopped value)? recordStopped,
-    TResult? Function(_RecordSelected value)? recordSelected,
   }) {
     return recordStopped?.call(this);
   }
@@ -818,7 +877,6 @@ class _$RecordStoppedImpl implements _RecordStopped {
     TResult Function(_RecordPlayed value)? recordPlayed,
     TResult Function(_RecordPaused value)? recordPaused,
     TResult Function(_RecordStopped value)? recordStopped,
-    TResult Function(_RecordSelected value)? recordSelected,
     required TResult orElse(),
   }) {
     if (recordStopped != null) {
@@ -829,185 +887,15 @@ class _$RecordStoppedImpl implements _RecordStopped {
 }
 
 abstract class _RecordStopped implements PlayerEvent {
-  const factory _RecordStopped() = _$RecordStoppedImpl;
-}
+  const factory _RecordStopped({required final Completer<dynamic> completer}) =
+      _$RecordStoppedImpl;
 
-/// @nodoc
-abstract class _$$RecordSelectedImplCopyWith<$Res> {
-  factory _$$RecordSelectedImplCopyWith(_$RecordSelectedImpl value,
-          $Res Function(_$RecordSelectedImpl) then) =
-      __$$RecordSelectedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RecordInfo recordInfo});
-
-  $RecordInfoCopyWith<$Res> get recordInfo;
-}
-
-/// @nodoc
-class __$$RecordSelectedImplCopyWithImpl<$Res>
-    extends _$PlayerEventCopyWithImpl<$Res, _$RecordSelectedImpl>
-    implements _$$RecordSelectedImplCopyWith<$Res> {
-  __$$RecordSelectedImplCopyWithImpl(
-      _$RecordSelectedImpl _value, $Res Function(_$RecordSelectedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PlayerEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? recordInfo = null,
-  }) {
-    return _then(_$RecordSelectedImpl(
-      recordInfo: null == recordInfo
-          ? _value.recordInfo
-          : recordInfo // ignore: cast_nullable_to_non_nullable
-              as RecordInfo,
-    ));
-  }
-
-  /// Create a copy of PlayerEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RecordInfoCopyWith<$Res> get recordInfo {
-    return $RecordInfoCopyWith<$Res>(_value.recordInfo, (value) {
-      return _then(_value.copyWith(recordInfo: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$RecordSelectedImpl implements _RecordSelected {
-  const _$RecordSelectedImpl({required this.recordInfo});
-
-  @override
-  final RecordInfo recordInfo;
-
-  @override
-  String toString() {
-    return 'PlayerEvent.recordSelected(recordInfo: $recordInfo)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RecordSelectedImpl &&
-            (identical(other.recordInfo, recordInfo) ||
-                other.recordInfo == recordInfo));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, recordInfo);
+  Completer<dynamic> get completer;
 
   /// Create a copy of PlayerEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RecordSelectedImplCopyWith<_$RecordSelectedImpl> get copyWith =>
-      __$$RecordSelectedImplCopyWithImpl<_$RecordSelectedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() recordsLoaded,
-    required TResult Function(RecordInfo recordInfo) recordAdded,
-    required TResult Function(String recordPath) recordPlayed,
-    required TResult Function() recordPaused,
-    required TResult Function() recordStopped,
-    required TResult Function(RecordInfo recordInfo) recordSelected,
-  }) {
-    return recordSelected(recordInfo);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? recordsLoaded,
-    TResult? Function(RecordInfo recordInfo)? recordAdded,
-    TResult? Function(String recordPath)? recordPlayed,
-    TResult? Function()? recordPaused,
-    TResult? Function()? recordStopped,
-    TResult? Function(RecordInfo recordInfo)? recordSelected,
-  }) {
-    return recordSelected?.call(recordInfo);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? recordsLoaded,
-    TResult Function(RecordInfo recordInfo)? recordAdded,
-    TResult Function(String recordPath)? recordPlayed,
-    TResult Function()? recordPaused,
-    TResult Function()? recordStopped,
-    TResult Function(RecordInfo recordInfo)? recordSelected,
-    required TResult orElse(),
-  }) {
-    if (recordSelected != null) {
-      return recordSelected(recordInfo);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_RecordsLoaded value) recordsLoaded,
-    required TResult Function(_RecordAdded value) recordAdded,
-    required TResult Function(_RecordPlayed value) recordPlayed,
-    required TResult Function(_RecordPaused value) recordPaused,
-    required TResult Function(_RecordStopped value) recordStopped,
-    required TResult Function(_RecordSelected value) recordSelected,
-  }) {
-    return recordSelected(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RecordsLoaded value)? recordsLoaded,
-    TResult? Function(_RecordAdded value)? recordAdded,
-    TResult? Function(_RecordPlayed value)? recordPlayed,
-    TResult? Function(_RecordPaused value)? recordPaused,
-    TResult? Function(_RecordStopped value)? recordStopped,
-    TResult? Function(_RecordSelected value)? recordSelected,
-  }) {
-    return recordSelected?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RecordsLoaded value)? recordsLoaded,
-    TResult Function(_RecordAdded value)? recordAdded,
-    TResult Function(_RecordPlayed value)? recordPlayed,
-    TResult Function(_RecordPaused value)? recordPaused,
-    TResult Function(_RecordStopped value)? recordStopped,
-    TResult Function(_RecordSelected value)? recordSelected,
-    required TResult orElse(),
-  }) {
-    if (recordSelected != null) {
-      return recordSelected(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RecordSelected implements PlayerEvent {
-  const factory _RecordSelected({required final RecordInfo recordInfo}) =
-      _$RecordSelectedImpl;
-
-  RecordInfo get recordInfo;
-
-  /// Create a copy of PlayerEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RecordSelectedImplCopyWith<_$RecordSelectedImpl> get copyWith =>
+  _$$RecordStoppedImplCopyWith<_$RecordStoppedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1015,21 +903,27 @@ abstract class _RecordSelected implements PlayerEvent {
 mixin _$PlayerState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<RecordInfo> records) loaded,
+    required TResult Function(List<RecordInfo> records,
+            String? selectedRecordPath, bool isPLaying)
+        loaded,
     required TResult Function() loading,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<RecordInfo> records)? loaded,
+    TResult? Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<RecordInfo> records)? loaded,
+    TResult Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -1086,7 +980,8 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<RecordInfo> records});
+  $Res call(
+      {List<RecordInfo> records, String? selectedRecordPath, bool isPLaying});
 }
 
 /// @nodoc
@@ -1103,12 +998,22 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? records = null,
+    Object? selectedRecordPath = freezed,
+    Object? isPLaying = null,
   }) {
     return _then(_$LoadedImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
               as List<RecordInfo>,
+      selectedRecordPath: freezed == selectedRecordPath
+          ? _value.selectedRecordPath
+          : selectedRecordPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isPLaying: null == isPLaying
+          ? _value.isPLaying
+          : isPLaying // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1116,7 +1021,10 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl extends _Loaded {
-  _$LoadedImpl({final List<RecordInfo> records = const []})
+  _$LoadedImpl(
+      {final List<RecordInfo> records = const [],
+      this.selectedRecordPath,
+      this.isPLaying = false})
       : _records = records,
         super._();
 
@@ -1130,8 +1038,14 @@ class _$LoadedImpl extends _Loaded {
   }
 
   @override
+  final String? selectedRecordPath;
+  @override
+  @JsonKey()
+  final bool isPLaying;
+
+  @override
   String toString() {
-    return 'PlayerState.loaded(records: $records)';
+    return 'PlayerState.loaded(records: $records, selectedRecordPath: $selectedRecordPath, isPLaying: $isPLaying)';
   }
 
   @override
@@ -1139,12 +1053,19 @@ class _$LoadedImpl extends _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            const DeepCollectionEquality().equals(other._records, _records));
+            const DeepCollectionEquality().equals(other._records, _records) &&
+            (identical(other.selectedRecordPath, selectedRecordPath) ||
+                other.selectedRecordPath == selectedRecordPath) &&
+            (identical(other.isPLaying, isPLaying) ||
+                other.isPLaying == isPLaying));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_records));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_records),
+      selectedRecordPath,
+      isPLaying);
 
   /// Create a copy of PlayerState
   /// with the given fields replaced by the non-null parameter values.
@@ -1157,33 +1078,39 @@ class _$LoadedImpl extends _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<RecordInfo> records) loaded,
+    required TResult Function(List<RecordInfo> records,
+            String? selectedRecordPath, bool isPLaying)
+        loaded,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
-    return loaded(records);
+    return loaded(records, selectedRecordPath, isPLaying);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<RecordInfo> records)? loaded,
+    TResult? Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
-    return loaded?.call(records);
+    return loaded?.call(records, selectedRecordPath, isPLaying);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<RecordInfo> records)? loaded,
+    TResult Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(records);
+      return loaded(records, selectedRecordPath, isPLaying);
     }
     return orElse();
   }
@@ -1224,10 +1151,15 @@ class _$LoadedImpl extends _Loaded {
 }
 
 abstract class _Loaded extends PlayerState {
-  factory _Loaded({final List<RecordInfo> records}) = _$LoadedImpl;
+  factory _Loaded(
+      {final List<RecordInfo> records,
+      final String? selectedRecordPath,
+      final bool isPLaying}) = _$LoadedImpl;
   _Loaded._() : super._();
 
   List<RecordInfo> get records;
+  String? get selectedRecordPath;
+  bool get isPLaying;
 
   /// Create a copy of PlayerState
   /// with the given fields replaced by the non-null parameter values.
@@ -1277,7 +1209,9 @@ class _$LoadingImpl extends _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<RecordInfo> records) loaded,
+    required TResult Function(List<RecordInfo> records,
+            String? selectedRecordPath, bool isPLaying)
+        loaded,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -1287,7 +1221,9 @@ class _$LoadingImpl extends _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<RecordInfo> records)? loaded,
+    TResult? Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -1297,7 +1233,9 @@ class _$LoadingImpl extends _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<RecordInfo> records)? loaded,
+    TResult Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -1389,7 +1327,9 @@ class _$ErrorImpl extends _Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<RecordInfo> records) loaded,
+    required TResult Function(List<RecordInfo> records,
+            String? selectedRecordPath, bool isPLaying)
+        loaded,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -1399,7 +1339,9 @@ class _$ErrorImpl extends _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<RecordInfo> records)? loaded,
+    TResult? Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -1409,7 +1351,9 @@ class _$ErrorImpl extends _Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<RecordInfo> records)? loaded,
+    TResult Function(List<RecordInfo> records, String? selectedRecordPath,
+            bool isPLaying)?
+        loaded,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),

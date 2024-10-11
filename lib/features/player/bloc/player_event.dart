@@ -9,14 +9,15 @@ class PlayerEvent with _$PlayerEvent {
   }) = _RecordAdded;
 
   const factory PlayerEvent.recordPlayed({
+    required Completer completer,
     required String recordPath,
   }) = _RecordPlayed;
 
-  const factory PlayerEvent.recordPaused() = _RecordPaused;
+  const factory PlayerEvent.recordPaused({
+    required Completer completer,
+  }) = _RecordPaused;
 
-  const factory PlayerEvent.recordStopped() = _RecordStopped;
-
-  const factory PlayerEvent.recordSelected({
-    required RecordInfo recordInfo,
-  }) = _RecordSelected;
+  const factory PlayerEvent.recordStopped({
+    required Completer completer,
+  }) = _RecordStopped;
 }

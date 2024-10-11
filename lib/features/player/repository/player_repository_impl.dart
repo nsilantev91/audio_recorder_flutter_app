@@ -47,4 +47,10 @@ final class PlayerRepositoryImpl implements PlayerRepository {
   Future<void> playRecord(String recordPath) async {
     await channel.invokeMethod('play', <String, String>{'path': recordPath});
   }
+
+  @override
+  Future<void> pauseRecord() async => await channel.invokeMethod('pause');
+
+  @override
+  Future<void> stopRecord() => channel.invokeMethod('stop');
 }
