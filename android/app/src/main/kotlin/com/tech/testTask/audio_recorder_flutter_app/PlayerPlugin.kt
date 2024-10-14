@@ -1,11 +1,6 @@
 package com.tech.testTask.audio_recorder_flutter_app
 
 import android.app.Activity
-import android.content.pm.PackageManager
-import android.media.MediaPlayer
-import android.media.MediaRecorder
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
