@@ -1,6 +1,6 @@
 # Audio recorder
 
-## Features:
+## Features
 * Recording audio from the device's microphone
 * Saving recordings to the device's local storage
 * Playing an audio recording
