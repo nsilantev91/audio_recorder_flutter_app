@@ -1,5 +1,5 @@
 name: audio_recorder_flutter_app
-description: "A new Flutter project."
+description: "Audio recorder"
 publish_to: 'none'
 
 version: 1.0.0+1
