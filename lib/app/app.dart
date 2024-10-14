@@ -19,6 +19,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         home: SafeArea(
+          /// Flutter BLoC as the main state manager
           child: MultiBlocProvider(
             providers: [
               BlocProvider(
