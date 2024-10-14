@@ -35,7 +35,6 @@ class _RecordItemState extends State<RecordItem> {
   void _startTimer(Duration totalDuration) {
     _timer?.cancel();
 
-    _currentPosition = Duration.zero;
     setState(() {
       _isPlaying = true;
     });
@@ -68,16 +67,6 @@ class _RecordItemState extends State<RecordItem> {
       _isPlaying = false;
     });
     _timer?.cancel();
-  }
-
-  @override
-  void didUpdateWidget(covariant RecordItem oldWidget) {
-    if (widget.isCurrentRecord != oldWidget.isCurrentRecord) {
-      setState(() {
-        _isPlaying = widget.isPlaying;
-      });
-    }
-    super.didUpdateWidget(oldWidget);
   }
 
   @override

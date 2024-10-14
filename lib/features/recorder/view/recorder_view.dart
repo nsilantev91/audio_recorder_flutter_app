@@ -61,10 +61,14 @@ class _RecorderViewState extends State<RecorderView> {
                             ),
                   )
                 : const SizedBox.shrink(),
-            permissionDenied: (_) => const ListTile(
-              leading: Icon(
-                Icons.error,
-                color: Colors.amber,
+            permissionDenied: (_) => const Padding(
+              padding: EdgeInsets.only(bottom: 40, left: 8, right: 8),
+              child: ListTile(
+                subtitle: Text(AppStrings.permissionRequired),
+                leading: Icon(
+                  Icons.error,
+                  color: Colors.amber,
+                ),
               ),
             ),
             orElse: () => RecorderButton(

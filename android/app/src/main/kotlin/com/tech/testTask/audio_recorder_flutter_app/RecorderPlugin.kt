@@ -33,7 +33,7 @@ class RecorderPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityA
         } else {
             null
         }
-    ).filterNotNull().toTypedArray() // Убираем null значения
+    ).filterNotNull().toTypedArray()
 
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
@@ -159,6 +159,4 @@ class RecorderPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityA
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
         activity = binding.activity
     }
-
-
 }

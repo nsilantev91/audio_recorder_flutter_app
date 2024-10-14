@@ -47,11 +47,10 @@ class PlayerPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAwa
                         val filePath = "${activity?.externalCacheDir?.absolutePath}/$fileName"
                         val file = File(filePath)
                         val uri = file.toUri()
-                        val pl = ExoPlayer.Builder(activity!!).build()
                         val mediaItem = MediaItem.fromUri(uri)
-                        pl.setMediaItem(mediaItem)
-                        pl.prepare()
-                        pl.play()
+                        player?.setMediaItem(mediaItem)
+                        player?.prepare()
+                        player?.play()
                         result.success(null)
                     } catch (e: Exception) {
                         e.message?.let { result.error(it, e.stackTraceToString(), null) }
@@ -77,6 +76,7 @@ class PlayerPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAwa
                     player = null
                     result.success(null)
                 } catch (e: Exception) {
+                    e.message?.let { result.error(it, e.stackTraceToString(), null) }
                 }
             }
         }
