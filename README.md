@@ -1,16 +1,36 @@
-# audio_recorder_flutter_app
+# Audio recorder
 
-A new Flutter project.
+## Features:
+* Recording audio from the device's microphone
+* Saving recordings to the device's local storage
+* Playing an audio recording
 
-## Getting Started
+## Stack
 
-This project is a starting point for a Flutter application.
+[**Dart**](https://dart.dev/), [**Flutter**](https://flutter.dev/),
+[**BLoC**](https://bloclibrary.dev/#/)
 
-A few resources to get you started if this is your first Flutter project:
+## Key android technologies
+* [**MediaRecorder**](https://developer.android.com/reference/android/media/MediaRecorder)
+* [**ExoPLayer**](https://developer.android.com/media/media3/exoplayer)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installing Flutter environment
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [**install Flutter**](https://docs.flutter.dev/get-started/install)
+- for iOS build [**install Xcode**](https://developer.apple.com/xcode/) +
+  [**CocoaPods**](https://guides.cocoapods.org/using/getting-started.html#installation)
+- for Android build [**install Android Studio**](https://developer.android.com/studio/)
+- add Flutter path to shell config(ex: .zshrc or .bashrc):
+```bash
+$ nano ~/.zshrc
+```
+add with **changed** Flutter path
+```
+export PATH="$PATH:<path to flutter>/bin"
+```
+
+save and run
+```bash
+$ source ~/.zshrc
+```
+
